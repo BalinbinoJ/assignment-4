@@ -1,3 +1,10 @@
+/*
+  Name: Justice Tolentino
+  Date: 10.16.2026
+  CSC 372-01
+
+  This is the script.js page for my fetch assignment. This is where I composed the functions for the tv show list page.
+*/
 "use strict"
 
 let tvShowForm = document.getElementById("tv-show-form");
@@ -70,3 +77,8 @@ window.addEventListener("load", async () => {
         console.error("Error fetching tv shows:", error);
     }
 });
+
+function displayCast(tvShowId) {
+
+
+}
