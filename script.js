@@ -24,6 +24,7 @@ async function handleTVShowFormSubmit(event) {
 }
 
 function displayTVShowResults(televisionShows) {
+    
     const tvShowResults = document.getElementById("tv-show-results");
     const showList = document.createElement("div");
     tvShowResults.appendChild(showList);
@@ -48,5 +49,24 @@ function makeShowCard(tvShow) {
     showCard.append(showPremiereDate);
     showCard.append(showGenre);
     showCard.append(showRating);
+    var castButton = document.createElement("button");
+    castButton.textContent = "Show Cast";
+    showCard.append(castButton);
     return showCard;
 }
+
+window.addEventListener("load", async () => {
+        const apiUrl = new URL(`https://api.tvmaze.com/search/shows?q=girls`);
+
+    try {
+        const response =  await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        const shows = await response.json();
+         displayTVShowResults(shows);
+        console.log("It worked!")
+    } catch (error) {
+        console.error("Error fetching tv shows:", error);
+    }
+});
