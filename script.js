@@ -85,25 +85,10 @@ window.addEventListener("load", async () => {
 /*
 function displayCast(tvShowId) {
     const castUrl = new URL(`https://api.tvmaze.com/search/shows/${tvShowId}/cast`);
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-        const shows = await response.json();
-        await displayTVShowResults(shows);
-        console.log("It worked!")
-    } catch (error) {
-        console.error("Error fetching tv shows:", error);
-    }
 let castCard = document.createElement("div");
     castCard.className = "tvShowCard";
     let showCast = document.createElement("div");
     castCard.append(showCast);
-    .forEach((castMember) => {
-        const showCard = makeShowCard(teleShow);
-        showList.append(showCard);
-    });
     let hideCastButton = document.createElement("button");
     hideCastButton.textContent = "Hide Cast";
     castCard.append(hideCastButton);
